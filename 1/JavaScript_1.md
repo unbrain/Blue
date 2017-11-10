@@ -1,8 +1,8 @@
-1. 什么是 JavaScript 
+###1. 什么是 JavaScript 
 
 使页面能与用户进行交互
 
-2. 实现一个例如在是否选择记住密码的时候鼠标移入与移出时的一个 div 的显示与隐藏。 
+###2.  实现一个例如在是否选择记住密码的时候鼠标移入与移出时的一个 div 的显示与隐藏。 
 
 需要：
 
@@ -23,7 +23,7 @@ alert('123');//这里的123就是字面量，提示123
 alert(num);//提示123
 ```
 
-3. 初识函数与变量
+###3.  初识函数与变量
 
 变量就好似尚方宝剑代表着皇帝
 ```
@@ -54,18 +54,18 @@ function function_name(argument){
 			oDiv.style.background = color;
 		}
 ```
-4. 实现页面换肤
+###4. 实现页面换肤
 
 思路: 用多个 CSS 实现换肤
 
 总结: id 可以加在任何标签，甚至能改变 href。HTML 中如何写 JavaScript 就如何写。但有唯一一个例外就是 class 需要写成 className，因为 class 是 JavaScript 中的关键字
 
-5. 考虑优先级问题
+###5. 考虑优先级问题
 
 在用 .style 修改样式我们检查元素可知道不论是获取还是修改都是在操作行间样式。但是写代码会有时修改了 .style 又修改 .className 这时我们可能在两个中有修改了 background 那么 class 的优先级小于 style，但是很有可能我们并不会注意这一点所以建议只使用其中一种，避免 bug 的出现。
 参考[demo9](demo9.html)
 
-6. 获取一组元素 getElementsByTagName 实现对一组 div 进行颜色的改变
+###6. 获取一组元素 getElementsByTagName 实现对一组 div 进行颜色的改变
 
 ```javascript
 	var aDiv = document.getElementsByTagName('div')
@@ -86,7 +86,7 @@ function function_name(argument){
 ```
 
 
-7. 用 this 及 index(索引值) 解决问题
+###7. 用 this 及 index(索引值) 解决问题
 ```javascript
     	for (var i = 0; i < aBtn.length; i++) {
     		aBtn[i].flag = i;//记录当前i
