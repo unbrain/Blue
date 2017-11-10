@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+			float: left;
+			margin: 10px;
+		}
+	</style>
+	<script>
+		window.onload = function (){
+
+			var aDiv = document.getElementsByTagName('div');
+
+			//alert(aDiv.length);
+			//aDiv.style.background = 'green';
+			//由于是数组需要遍历来修改样式
+			
+			for(var i = 0; i < aDiv.length; i++){
+				aDiv[i].style.background = 'green';
+			}
+
+			// var j = 0;
+
+			// while(j < aDiv.length){
+			// 	aDiv[j].style.background = 'green';
+			// 	j++;
+			// }
+		}
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black
+		}
+		.box{
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="变红" onclick="toRed()">
+	<input type="button" value="变绿" onclick="toGreen()">
+	<div id="div1">
+		
+	</div>
+	<h1>可以先变绿再变红 但是不能先变红在变绿</h1>
+	<script>
+		function toRed() {
+			var oDiv = document.getElementById("div1");
+
+			oDiv.style.background = "red";
+		}
+
+		function toGreen() {
+			var oDiv = document.getElementById("div1");
+
+			oDiv.className = "box";
+		}
+
+		//考虑优先级的问题
+	</script>
+</body>
+</html>

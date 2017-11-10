@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>传参2</title>
+	<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="变宽" onclick="set('width', '300px')">
+	<input type="button" value="变高" onclick="set('height', '300px')">
+	<input type="button" value="变绿" onclick="set('background', 'green')">
+	<div id="div1">
+		
+	</div>
+	<script>
+		// function toWidth() {
+		// 	var oDiv = document.getElementById('div1');
+
+		// 	oDiv.style.width = "300px";
+		// }
+
+		// function toHeight(argumen) {
+		// 	var oDiv = document.getElementById('div1');
+
+		// 	oDiv.style.height = "300px";
+		// }
+
+		// function toGreen() {
+		// 	var oDiv = document.getElementById('div1');
+
+		// 	oDiv.style.background = "green";
+		// }
+		// 
+		
+		function set(name, value){
+			var oDiv = document.getElementById('div1');
+
+			//不能这样写		style中无name这个参数不过可以用[]来代替.来传参
+			//oDiv.style.name = value
+			oDiv.style[name] = value;
+		}
+	</script>
+</body>
+</html>

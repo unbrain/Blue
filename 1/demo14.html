@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>年历</title>
+
+<style>
+body{
+	margin:0px auto;
+	padding-left:50%;
+}
+#div0{	
+	postion:absolute;
+	margin-top:50px;
+	margin-left:-150px;
+	width:300px;
+	height:530px;
+	border:#333 1px solid;
+	background:#CCC;
+}
+#div0 ul{
+	list-style:none; /* 去掉ul前面的符号 */
+    margin: 0px; /* 与外界元素的距离为0 */
+    padding: 0px; /* 与内部元素的距离为0 */
+    width: 300px;
+}
+#div0 ul li{
+	margin:10px 10px;
+	float:left;
+	width:80px;
+	height:80px;
+	text-align:center;
+	background:#000;
+}
+#div0 h2{
+	color:#FFF;
+}
+#div0 p{
+	color:#FFF;
+	margin-top:-15px;
+}
+#div1{
+	float:left;
+	width:260px;
+	height:110px;
+	background:#666;
+	margin-left:10px;
+	padding:5px 10px;
+}
+.active{
+	background:#FFF !important;
+}
+.active h2{
+	color:#F0F !important;
+}
+.active p{
+	color:#F0F !important;
+}
+a{
+	text-decoration:none;
+}
+</style>
+<script>
+window.onload=function (){
+	var arr=[
+		'正月晴和风气新，纷纷已有醉游人。（唐·白居易《早春持斋，答皇甫十见赠》）',
+		'新年都未有芳华，二月初惊见草芽。（唐·韩愈《春雪》）',
+		'故人西辞黄鹤楼，烟花三月下扬州。（唐·李白《黄鹤楼送孟浩然之广陵》）',
+		'人间四月芳菲尽，山寺桃花始盛开。（唐·白居易《大林寺桃花》）',
+		'五月天山雪，无花只有寒。（唐·李白《塞下曲》）',
+		'毕竟西湖六月中，风光不与四时同。（宋·杨万里《晓出净慈寺送林子方》）',
+		'七月七日长生殿，夜半无人私语时。（唐·白居易《长恨歌》）',
+		'八月秋高风怒号，卷我屋上三重茅。（唐·杜甫《茅屋为秋风所破歌》）',
+		'可怜九月初三夜，露似真珠月似弓。（唐·白居易《暮江吟》）',
+		'不知十月江寒上，陡觉三更布被轻。（清·查慎行《寒夜次潘岷原韵》）',
+		'十一月中长至夜，三千里外远行人。（唐·白居易《冬至宿杨梅馆》）',
+		'寒冬十二月，晨起践严霜。（汉·无名氏《别诗》）'
+	];
+	//alert(arr[1]);
+	var oDiv = document.getElementById('div0');
+	var oLi = oDiv.getElementsByTagName('li');
+	//alert(oLi.length);
+	var gDiv = document.getElementById('div1');
+	for(var i = 0;i<oLi.length;i++){
+		oLi[i].m=i;//alert(this.m);
+		oLi[i].onmouseover=function (){
+			for(var i = 0;i<oLi.length;i++){
+				//alert(this);
+				oLi[i].className="";
+			}
+			this.className="active";
+			
+			gDiv.innerHTML='<h2>'+(this.m+1)+'月诗句</h2><p>'+arr[this.m]+'</p>';
+		}
+	}
+}
+</script>
+<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body class="eye-protector-processed" style="background-color: rgb(193, 230, 198); transition: background-color 0.3s ease;">
+<div id="div0">
+	<ul>
+    	<li class="" style="transition: background-color 0.3s ease; background-color: rgb(193, 230, 198);"><a href="#"><h2>1</h2><p>JAN</p></a></li>
+    	<li class=""><a href="#"><h2>2</h2><p>FER</p></a></li>
+    	<li class=""><a href="#"><h2>3</h2><p>MAR</p></a></li>
+    	<li class=""><a href="#"><h2>4</h2><p>APR</p></a></li>
+    	<li class=""><a href="#"><h2>5</h2><p>MAY</p></a></li>
+    	<li class=""><a href="#"><h2>6</h2><p>JUN</p></a></li>
+    	<li class=""><a href="#"><h2>7</h2><p>JUL</p></a></li>
+    	<li class=""><a href="#"><h2>8</h2><p>AUG</p></a></li>
+    	<li class=""><a href="#"><h2>9</h2><p>SEP</p></a></li>
+    	<li class=""><a href="#"><h2>10</h2><p>OCT</p></a></li>
+    	<li class=""><a href="#"><h2>11</h2><p>NOV</p></a></li>
+    	<li class=""><a href="#"><h2>12</h2><p>DEC</p></a></li>
+	</ul>
+	<div id="div1"><h2>1月诗句</h2><p>正月晴和风气新，纷纷已有醉游人。（唐·白居易《早春持斋，答皇甫十见赠》）</p></div>
+</div>
+
+
+</body>
+</html>

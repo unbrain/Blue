@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo1</title>
+	<style>
+		#div1{
+			width: 200px;
+			height: 100px;
+			background: #ccc;
+			boder: 1px solid #999;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<input type="checkbox" id="ip">
+	<div id="div1">
+		为了您的信息安全....
+	</div>
+	<script>
+		var oIp = document.getElementById("ip");
+		var oDiv = document.getElementById("div1");
+
+		oIp.onmouseover = function show() {
+			oDiv.style.display = "block";
+		}
+
+		oIp.onmouseout = function show() {
+			oDiv.style.display = "none";
+		}
+
+	</script>
+</body>
+</html>

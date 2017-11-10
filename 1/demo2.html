@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo2</title>
+	<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			background: green;
+			
+		}
+	</style>
+</head>
+<body>
+
+	<div id="div1">
+		
+	</div>
+	<script>
+		
+		var oDiv = document.getElementById("div1");
+
+		function toRed() {
+			oDiv.style.background = "red";
+			oDiv.style.width = "300px";
+			oDiv.style.height = "300px";
+		}
+
+		function toGreen() {
+			oDiv.style.background = "green";
+			oDiv.style.width = "200px";
+			oDiv.style.height = "200px";
+		}
+
+		oDiv.onmouseover = toRed;
+		oDiv.onmouseout = toGreen;
+
+
+		
+
+	</script>
+</body>
+</html>

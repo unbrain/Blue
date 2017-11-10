@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>传参</title>
+	<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="变黄" id="btn1" onclick="setColor('yellow')">
+	<input type="button" value="变绿" id="btn2" onclick="setColor('green')">
+	<input type="button" value="变黑" id="btn3" onclick="setColor('Black')">
+	<div id="div1"></div>
+	<script>
+		var oB1 = document.getElementById('btn1');
+		var oB2 = document.getElementById('btn2');
+		var oB3 = document.getElementById('btn3');
+		var oDiv = document.getElementById('div1');
+
+		// oB1.onclick = function toY() {
+		// 	// body...
+		// 	oDiv.style.background = "yellow";
+		// }
+
+		// oB2.onclick = function toG() {
+		// 	// body...
+		// 	oDiv.style.background = "green";
+		// }
+
+		// oB3.onclick = function toB() {
+		// 	// body...
+		// 	oDiv.style.background = "Black";
+		// }
+		//长得像，进行观察，进行合并，便于重用，少写代码		---->		函数传参
+		
+		function setColor(color){
+			oDiv.style.background = color;
+		}
+
+	
+	</script>
+</body>
+</html>

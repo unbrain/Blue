@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	demo3</title>
+	<link id="l1" rel="stylesheet" href="1.css">
+</head>
+<body>
+	<input type="button" value="color1" id="bu1">
+	<input type="button" value="color2" id="bu2">
+	<script>	
+		var oL = document.getElementById('l1');
+		var oBtn1 = document.getElementById('bu1');
+		var oBtn2 = document.getElementById('bu2');
+
+		oBtn1.onclick = function(){
+			oL.href = "1.css"
+		}
+		oBtn2.onclick = function(){
+			oL.href = "2.css"
+		}
+	</script>
+</body>
+</html>
