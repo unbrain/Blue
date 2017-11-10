@@ -59,6 +59,7 @@ function function_name(argument){
 思路: 用多个 CSS 实现换肤
 
 总结: id 可以加在任何标签，甚至能改变 href。HTML 中如何写 JavaScript 就如何写。但有唯一一个例外就是 class 需要写成 className，因为 class 是 JavaScript 中的关键字
+
 5. 考虑优先级问题
 
 在用 .style 修改样式我们检查元素可知道不论是获取还是修改都是在操作行间样式。但是写代码会有时修改了 .style 又修改 .className 这时我们可能在两个中有修改了 background 那么 class 的优先级小于 style，但是很有可能我们并不会注意这一点所以建议只使用其中一种，避免 bug 的出现。
