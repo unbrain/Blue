@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arguments</title>
+	<style>
+	window.onload = function (){
+		function sum(){
+			var num = 0;
+
+			for(var i = 0; i < arguments.length; i++){
+				num += arguments[i];
+			}
+
+			return num;
+		}
+
+		alert(sum(1, 9, 8, 9));
+	}
+		
+	</style>
+</head>
+<body>
+	
+</body>
+</html>
