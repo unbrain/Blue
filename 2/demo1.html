@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求和</title>
+	<style>
+		
+	</style>
+	<script>
+		window.onload = function (){
+			var oBtn = document.getElementById('btn');
+			var oT1 = document.getElementById('text1');
+			var oT2 = document.getElementById('text2');
+
+			oBtn.onclick = function (){
+				//parseInt('12abc');	//12
+				//parseInt('12abc12');	//12
+				//parseInt('abc');	//NaN
+				//parseInt('zxc');	//NaN
+				//parseInt('abc') == parseInt('zxc');	//flase
+				//isNaN(parseInt('abc'));	//true
+				//parseInt(12) + parseInt('abc');	//NaN
+				
+				var n1 = parseInt(oT1.value);
+				var n2 = parseInt(oT2.value);
+
+				if(isNaN(n1)){
+					alert("第一个数有误");
+				}else if(isNaN(n2)){
+					alert("第二个数有误");
+				}else{
+					alert(n1 + n2);
+				}
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="text1">
+	<input type="text" id="text2">
+	<input type="button" id="btn" value="求和">
+</body>
+</html>

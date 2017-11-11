@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>密码验证</title>
+</head>
+<body>
+	<input type="text" id="text1"><br>
+	<input type="text" id="text2"><button id="sub">确定</button>
+	<script>	
+		var oT1 = document.getElementById('text1');
+		var oT2 = document.getElementById('text2');
+		var oS = document.getElementById('sub');
+		var flag = 0;//计数
+
+		// 制作一个表单请用户输入用户名和密码，用户名默认admin,密码默认123456.如果输入正确显示登录成功。错误显示用户名或密码错误。如果错误超过5次，显示你的账户已经被锁定。
+		oS.onclick = function(){
+			flag++;
+			if(oT1.value == "admin" && oT2.value == "123456" && flag <=5){
+				alert("登录成功");
+				flag--;
+			}
+			else if(flag > 5){
+				alert("账户已经被锁定");
+			}else{
+				alert("用户名或密码错误, 你已输错" + flag + "次");
+			}
+			
+		}
+	</script>
+	
+</body>
+</html>

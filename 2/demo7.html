@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>算平均分</title>
+</head>
+<body>
+	<script>
+		var change = prompt("请输入有几个学生");
+		var sum = 0;
+		var average = 0;
+
+		for(var i = 0; i < change; i++){
+			var num = prompt("请输入第" + (i+1) + "个学生的成绩");
+			sum = sum + parseInt(num);
+			
+		}
+
+		average = sum / change;
+		alert("共有" + change + "个学生" + ", " + "平均分是" + average + ", " + "总分是" + sum);
+	</script>
+</body>
+</html>

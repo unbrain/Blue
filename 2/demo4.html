@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>成绩</title>
+</head>
+<body>
+	<input type="text" id="text"><button id="sub">	提交</button>
+	<script>	
+		var oT = document.getElementById('text');
+		var oS = document.getElementById('sub');
+
+		oS.onclick = function(){
+			if(oT.value < 60){
+				alert("不及格");
+			}
+			else if(oT.value < 70){
+				alert("及格");
+			}
+			else if(oT.value < 80){
+				alert("一般");
+			}
+			else if(oT.value < 90){
+				alert("良好");
+			}else{
+				alert("优秀");
+			}
+		}
+	</script>
+</body>
+</html>

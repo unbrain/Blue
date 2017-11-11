@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>年龄</title>
+</head>
+<body>
+	<input type="text" id="text"><button id="sub">	提交</button>
+	<script>	
+		var oT = document.getElementById('text');
+		var oS = document.getElementById('sub');
+
+		oS.onclick = function(){
+			if(oT.value < 12){
+				alert("不能看");
+			}
+			else if(oT.value < 18){
+				var change = prompt("是否想看：输入Y，输入N，")
+				if(change == "Y")
+				{
+					alert("请查看");
+				}else{
+					alert("放弃");
+				}
+			}else{
+				alert("可以看");
+			}
+		}
+	</script>
+</body>
+</html>
