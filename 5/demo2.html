@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getByClass</title>
+	<script>
+		function getByClass(oP, sC){
+			var arr = [];
+			var aEle = oP.getElementsByTagName('*');
+			for(var i = 0; i < aEle.length; i++)
+			{
+				if(aEle[i].className == sC){
+					arr.push(aEle[i]);
+				}
+			}
+
+			return arr;
+		}
+
+		window.onload = function (){
+			var oUl = document.getElementById('ul1');
+			var aA = oUl.getElementsByTagName('a');
+
+			for(var i =0; i < aA.length; i++){
+				aA[i].onclick = function (){
+					this.parentNode.style.display = 'none';
+				}
+			}
+
+			if(oUl.firstElementChild){
+				oUl.firstElementChild.style.background = 'red';//FF Chrome
+			}else{
+				oUl.firstChild.style.background = 'red';//IE6-8
+			}
+
+			var oBox = getByClass(oUl, 'box');
+
+			for(var i = 0; i < oBox.length; i++){
+				oBox[i].style.fontSize = '4em';
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<ul id="ul1">
+		<li class="box">0<a href="#"> 隐藏</a></li>
+		<li class="box">1<a href="#"> 隐藏</a></li>
+		<li>2<a href="#"> 隐藏</a></li>
+		<li>3<a href="#"> 隐藏</a></li>
+		<li>4<a href="#"> 隐藏</a></li>
+		<li class="box">5<a href="#"> 隐藏</a></li>
+		<li>6<a href="#"> 隐藏</a></li>
+		<li>7<a href="#"> 隐藏</a></li>
+		<li class="box">8<a href="#"> 隐藏</a></li>
+		<li>9<a href="#"> 隐藏</a></li>
+	</ul>
+</body>
+</html>

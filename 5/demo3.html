@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM创建插入</title>
+	<script>
+		window.onload = function (){
+			var oT = document.getElementById('text1');
+			var oBtn = document.getElementById('btn1');
+			var oUl = document.getElementById('ul1');
+			var aLi = oUl.getElementsByTagName('li');
+
+			oBtn.onclick = function (){
+				var oLi = document.createElement('li');
+				oLi.innerHTML = oT.value; 
+
+				if(aLi.length == 0){
+					oUl.appendChild(oLi);
+				}else{
+					oUl.insertBefore(oLi, aLi[0]);
+				}
+				
+			}
+
+			
+
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="text1">
+	<input type="button" value="插入" id="btn1">
+	<ul id="ul1"></ul>
+</body>
+</html>

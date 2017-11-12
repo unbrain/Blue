@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script>
+		window.onload =function(){
+			var oTb = document.getElementById('table1');
+			var oldC = '';
+
+
+			// alert(oTb.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0].getElementsByTagName('td')[1].innerHTML);
+			//alert(oTb.tBodies[0].rows[0].cells[1].innerHTML);
+
+			for(var i = 0; i < oTb.tBodies[0].rows.length; i++){
+				if(i % 2){
+					oTb.tBodies[0].rows[i].style.background = '';
+				}else{
+					oTb.tBodies[0].rows[i].style.background = 'green';
+				}
+
+				
+
+				oTb.tBodies[0].rows[i].onmouseover = function (){
+					oldC = this.style.background;
+					this.style.background = 'yellow';
+				}
+				oTb.tBodies[0].rows[i].onmouseout = function (){
+					this.style.background = oldC;
+				}
+			}
+
+
+		}
+	</script>
+</head>
+<body>
+
+	<table border="1px" width="500px" id="table1">
+		<thead>
+			<td>id</td>
+			<td>姓名</td>
+			<td>体重</td>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>张三</td>
+				<td>89kg</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>威廉</td>
+				<td>45kg</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>张生</td>
+				<td>66kg</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>王芳</td>
+				<td>59kg</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>老王</td>
+				<td>69kg</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>李四</td>
+				<td>72kg</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

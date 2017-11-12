@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格增删</title>
+	<script>
+		window.onload =function(){
+			var oTb = document.getElementById('table1');
+			var oT1 = document.getElementById('text1');
+			var oT2 = document.getElementById('text2');
+			var oBtn1 = document.getElementById('btn1');
+			var sum = oTb.tBodies[0].rows.length + 1;
+
+			// alert(oTb.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0].getElementsByTagName('td')[1].innerHTML);
+			//alert(oTb.tBodies[0].rows[0].cells[1].innerHTML);
+
+			oBtn1.onclick = function (){
+				var oTr = document.createElement('tr');
+				var oTd = document.createElement('td');
+				oTd.innerHTML = sum++;
+				oTr.appendChild(oTd);
+
+				var oTd = document.createElement('td');
+				oTd.innerHTML = oT1.value;
+				oTr.appendChild(oTd);
+
+				var oTd = document.createElement('td');
+				oTd.innerHTML = oT2.value;
+				oTr.appendChild(oTd);
+
+				var oTd = document.createElement('td');
+				oTd.innerHTML = '<a href = "#">删除</a>';
+				oTr.appendChild(oTd);
+
+				oTb.tBodies[0].appendChild(oTr);
+
+				oTd.getElementsByTagName('a')[0].onclick = function(){
+					oTb.tBodies[0].removeChild(this.parentNode.parentNode);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	姓名：<input type="text" id="text1">
+	体重：<input type="text" id="text2">
+	<input type="button" id="btn1" value="添加">
+	<table border="1px" width="500px" id="table1">
+		<thead>
+			<td>id</td>
+			<td>姓名</td>
+			<td>体重</td>
+			<td>操作</td>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>张三</td>
+				<td>89kg</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>威廉</td>
+				<td>45kg</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>张生</td>
+				<td>66kg</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>王芳</td>
+				<td>59kg</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>老王</td>
+				<td>69kg</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>李四</td>
+				<td>72kg</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
