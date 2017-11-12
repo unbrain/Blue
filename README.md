@@ -7,5 +7,6 @@
 3.  [深入 JavaScript](./3/JavaScript_3.md)
 4.  [定时器的使用](./4/JavaScript_4.md)
 5.  [DOM操作](./5/JavaScript_5.md)
+6.  [JS运动](./6/JavaScript_6.md)
 
 

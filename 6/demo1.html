@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>move</title>
+	<style>
+		#div1{
+			width: 100px;
+			height: 100px;
+			background-color: green;
+			position: absolute;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oBtn = document.getElementById('btn1');
+			var oDiv = document.getElementById('div1');
+			var timer = null;
+
+			oBtn.onclick = function (){
+				clearInterval(timer);	//保证就1个定时器
+				timer = setInterval(function () {
+					var speed = 1;
+					if(oDiv.offsetLeft > 300){
+						clearInterval(timer);
+					}
+					else{
+						oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+					}
+					
+				}, 30);
+
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="运动" id="btn1">
+	<div id="div1"></div>
+</body>
+</html>
