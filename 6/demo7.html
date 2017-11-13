@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变宽变高变淡</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: #00cc00;
+			float: left;
+			margin: 10px;
+		}
+		#div4{
+			background-color: red;
+			opacity: 0.3;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var oDiv1 = document.getElementById('div1');
+			var oDiv2 = document.getElementById('div2');
+			var oDiv3 = document.getElementById('div3');
+			var oDiv4 = document.getElementById('div4');
+
+			oDiv1.onmouseover = function (){
+				
+				move(this, 700, 'height');
+			};
+			oDiv1.onmouseout = function (){
+
+				move(this, 100, 'height');
+			};
+
+			oDiv2.onmouseover = function (){
+
+				move(this, 700, 'width');
+			};
+			oDiv2.onmouseout = function (){
+
+				move(this, 100, 'width');
+			};
+
+
+			oDiv3.onmouseover = function (){
+				move(this, 70, 'fontSize');
+			};
+			oDiv3.onmouseout = function (){
+				move(this, 16, 'fontSize');
+			};
+
+			oDiv4.onmouseover = function (){
+				move(this, 100, 'opacity');
+			};
+			oDiv4.onmouseout = function (){
+				move(this, 30, 'opacity');
+			};
+		}
+
+		function move(obj, flag, name){
+			var tran = 30;
+			clearInterval(obj.timer);
+
+			obj.timer = setInterval(function (){
+				if(name == 'opacity'){
+					var index = Math.round(parseFloat(getStyle(obj, name))*100);
+				}else{
+					var index = parseInt(getStyle(obj, name));
+				}	
+
+				speed = (flag - index)/5;
+				speed = speed > 0?Math.ceil(speed):Math.floor(speed);
+
+				if(index == flag){
+					clearInterval(obj.timer);
+				}else{
+					if(name == 'opacity'){
+						index += speed;
+						obj.style[name] = index/100;
+						document.getElementById('txt').value = obj.style[name];
+					}else{
+						obj.style[name] = index + speed + 'px';
+					}
+					
+				}
+			}, 30)
+		}
+
+		function getStyle(obj, name){
+			if(obj.currentStyle){
+				return obj.currentStyle[name];
+			}else{
+				return getComputedStyle(obj, false)[name];
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">变高</div>
+	<div id="div2">变宽</div>
+	<div id="div3">66</div>
+	<div id="div4"></div>
+	<input type="text" id="txt">
+</body>
+</html>

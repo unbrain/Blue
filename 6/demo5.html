@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>d多个运动div</title>
+	<style>
+		*{
+			margin = 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 50px;
+			margin-bottom: 20px;
+			background-color: #00cc00;
+		}
+	</style>
+	<script>
+		window.onload = function (){
+			var aDiv = document.getElementsByTagName('div');
+
+			for(var i = 0; i < aDiv.length; i++)
+			{
+				aDiv[i].timer = null;
+				aDiv[i].onmouseover = function (){
+					move(this, 600);
+				};
+				aDiv[i].onmouseout = function (){
+					move(this, 200);
+				};
+			}
+		}
+
+
+		function move(obj, flag) {
+			clearInterval(obj.timer);
+
+			obj.timer = setInterval(function(){
+				speed = (flag - obj.offsetWidth)/4;
+				speed = speed > 0? Math.ceil(speed): Math.floor(speed);
+
+				if(obj.offsetWidth == flag){
+					
+					clearInterval(obj.timer);
+				}else{
+					obj.style.width = obj.offsetWidth + speed + 'px';
+				}
+			}, 30);
+		}
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+</body>
+</html>

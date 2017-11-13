@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多物体淡入淡出</title>
+	<style>
+		div{
+			width: 180px;
+			height: 150px;
+			background-color: green;
+			opacity: 0.3;
+			float: left;
+			margin: 10px
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var aDiv = document.getElementsByTagName('div');
+
+			for(var i = 0; i < aDiv.length; i++){
+				aDiv[i].timer = null;
+				aDiv[id].num = 30;
+				aDiv[i].onmouseover = function () {
+					move(this, 100);
+				};
+				aDiv[i].onmouseout = function () {
+					move(this, 30);
+				};
+			}
+		}
+
+
+		function move(obj, flag){
+			clearInterval(obj.timer);
+
+			obj.timer = setInterval(function (){
+				speed = (flag - obj.num)/5;
+				speed = speed > 0?Math.ceil(speed):Math.floor(speed);
+
+				if(obj.num == flag){
+					clearInterval(obj.timer)
+				}else{
+					obj.num += speed;
+
+					obj.style.opacity = obj.num/100;
+				}
+			}, 30)
+		}
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+
+</body>
+</html>
