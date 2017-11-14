@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>仿FLASH的图片轮换效果</title>
+<link rel="stylesheet" type="text/css" href="zns_style.css">
+<script src="move.js"></script>
+<script>
+function getClass(oParent, oClass){
+	var aEle = oParent.getElementsByTagName('*');
+	var result= [];
+	for(var i = 0; i < aEle.length; i++){
+		if(aEle[i].className == oClass){
+			result.push(aEle[i]);
+		}
+	}
+
+	return result;
+}
+
+window.onload = function (){
+	var oDiv = document.getElementById('playimages');
+	var oBtnP = getClass(oDiv, 'prev')[0];
+	var oBtnN = getClass(oDiv, 'next')[0];
+	var oMarkL = getClass(oDiv, 'mark_left')[0];
+	var oMarkR = getClass(oDiv, 'mark_right')[0];
+
+	var oBigPic = getClass(oDiv, 'big_pic')[0];
+	var aBigLi = oBigPic.getElementsByTagName('li');
+	var oSmallPic = getClass(oDiv, 'small_pic')[0];
+	var oSmallUl = oSmallPic.getElementsByTagName('ul')[0];
+	var aSmallLi = oSmallPic.getElementsByTagName('li');
+
+	var now = 0;
+	var zIndex = 2;
+	//小图片长度
+	oSmallUl.style.width = aSmallLi[0].offsetWidth * aSmallLi.length + 'px';
+	//左右箭头淡入淡出
+	oBtnP.onmouseover = oMarkL.onmouseover = function (){
+		startMove(oBtnP, 'opacity', 60);
+	}
+	oBtnP.onmouseout = oMarkL.onmouseout = function (){
+		startMove(oBtnP, 'opacity', 0);
+	}
+
+	oBtnN.onmouseover = oMarkR.onmouseover = function (){
+		startMove(oBtnN, 'opacity', 60);
+	}
+	oBtnN.onmouseout = oMarkR.onmouseout = function (){
+		startMove(oBtnN, 'opacity', 0);
+	}
+
+	//点击小图
+	for(var i = 0; i < aSmallLi.length; i++){
+		aSmallLi[i].index = i;
+		aSmallLi[i].onclick = function (){
+			if(this.index == now)return;
+			now = this.index;
+			change();
+		}
+
+		aSmallLi[i].onmouseover = function(){
+			startMove(this, 'opacity', 100);
+		};
+		aSmallLi[i].onmouseout = function(){
+			if(this.index != now){
+				startMove(this, 'opacity', 60);
+			}
+		}
+	}
+
+	function change (){
+		aBigLi[now].style.zIndex = zIndex++;
+
+		for(var i = 0; i < aSmallLi.length; i++){
+			startMove(aSmallLi[i], 'opacity', 60)
+		}
+		startMove(aSmallLi[now], 'opacity', 100);
+		//下滑
+		aBigLi[now].style.height = 0;
+		startMove(aBigLi[now], 'height', 320);
+
+		//小图移动
+		if(now == 0){
+			startMove(oSmallUl, 'left', 0);
+		}
+			else if(now == aSmallLi.length - 1){
+				startMove(oSmallUl, 'left', -(now-2)*aSmallLi[0].offsetWidth);
+			}
+				else{
+					startMove(oSmallUl, 'left', -(now-1)*aSmallLi[0].offsetWidth);
+				}
+	}
+
+	oBtnP.onclick = function (){
+		now--;
+		if(now == -1){
+			now = aSmallLi.length - 1;
+
+		}
+		change();
+	};
+
+	oBtnN.onclick = function (){
+		now++;
+		if(now == aSmallLi.length){
+			now = 0;
+
+		}
+		change();
+	};
+
+	//定时
+	var timer = setInterval(oBtnN.onclick, 2000);
+
+	oDiv.onmouseover = function (){
+		clearInterval(timer);
+	}
+	oDiv.onmouseout = function (){
+		timer = setInterval(oBtnN.onclick, 2000);
+	}
+
+}
+</script>
+</head>
+
+<body>
+<div id="playimages" class="play">
+    <ul class="big_pic">
+
+		<div class="prev"></div>
+		<div class="next"></div>
+
+		<div class="text">加载图片说明……</div>
+		<div class="length">计算图片数量……</div>
+		
+		<a class="mark_left" href="javascript:;"></a>
+		<a class="mark_right" href="javascript:;"></a>
+		<div class="bg"></div>
+		
+        <li style="z-index:1;"><img src="images/1.jpg" /></li>
+        <li><img src="images/2.jpg" /></li>
+        <li><img src="images/3.jpg" /></li>
+        <li><img src="images/4.jpg" /></li>
+        <li><img src="images/5.jpg" /></li>
+        <li><img src="images/6.jpg" /></li>
+    </ul>
+    <div class="small_pic">
+        <ul style="width:390px;">
+            <li style="filter: 100; opacity: 1;"><img src="images/1.jpg" /></li>
+            <li><img src="images/2.jpg" /></li>
+            <li><img src="images/3.jpg" /></li>
+            <li><img src="images/4.jpg" /></li>
+            <li><img src="images/5.jpg" /></li>
+            <li><img src="images/6.jpg" /></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
