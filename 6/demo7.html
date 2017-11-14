@@ -23,24 +23,19 @@
 			var oDiv3 = document.getElementById('div3');
 			var oDiv4 = document.getElementById('div4');
 
-			oDiv1.onmouseover = function (){
-				
+			oDiv1.onmouseover = function (){				
 				move(this, 700, 'height');
 			};
 			oDiv1.onmouseout = function (){
-
 				move(this, 100, 'height');
 			};
 
 			oDiv2.onmouseover = function (){
-
 				move(this, 700, 'width');
 			};
 			oDiv2.onmouseout = function (){
-
 				move(this, 100, 'width');
 			};
-
 
 			oDiv3.onmouseover = function (){
 				move(this, 70, 'fontSize');
@@ -58,11 +53,10 @@
 		}
 
 		function move(obj, flag, name){
-			var tran = 30;
 			clearInterval(obj.timer);
 
 			obj.timer = setInterval(function (){
-				if(name == 'opacity'){
+				if(name == 'opacity'){//opcity
 					var index = Math.round(parseFloat(getStyle(obj, name))*100);
 				}else{
 					var index = parseInt(getStyle(obj, name));
@@ -80,8 +74,7 @@
 						document.getElementById('txt').value = obj.style[name];
 					}else{
 						obj.style[name] = index + speed + 'px';
-					}
-					
+					}					
 				}
 			}, 30)
 		}
